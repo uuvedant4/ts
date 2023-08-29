@@ -1,9 +1,15 @@
-var add = function (num1, num2) {
-    return num1 + num2;
-};
-var num1 = 3;
-var num2 = 4;
-console.log(add(num1, num2));
-// const names: any[] = ["Vedant", "Parth", "John", 4];
-var names = ["Vedant", "Parth", "John"];
-console.log(names);
+// union
+function combine(input1, input2, operationType) {
+    var result;
+    if ((typeof input1 === "number" && typeof input2 === "number") ||
+        operationType === "as-number") {
+        result = +input1 + +input2;
+    }
+    else {
+        result = input1.toString() + input2.toString();
+    }
+    return result;
+}
+console.log(combine(3, 4, "as-number"));
+console.log(combine("3", "4", "as-number"));
+console.log(combine(3, "4", "as-string"));

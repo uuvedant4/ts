@@ -1,34 +1,22 @@
-const add = (num1: number, num2: number) => {
-  return num1 + num2;
-};
+// union
 
-const num1: number = 3;
-const num2: number = 4;
-
-console.log(add(num1, num2));
-
-// const names: any[] = ["Vedant", "Parth", "John", 4];
-const names: string[] = ["Vedant", "Parth", "John"];
-console.log(names);
-
-// Enum
-
-enum SDE_LEVEL {
-  I = 1,
-  II = 2,
-  III = 3,
+function combine(
+  input1: number | string,
+  input2: number | string,
+  operationType: "as-number" | "as-string"
+) {
+  let result: string | number;
+  if (
+    (typeof input1 === "number" && typeof input2 === "number") ||
+    operationType === "as-number"
+  ) {
+    result = +input1 + +input2;
+  } else {
+    result = input1.toString() + input2.toString();
+  }
+  return result;
 }
 
-const userDetails: {
-  name: string;
-  hobbies: string[];
-  age: number;
-  role: [string, number]; // tuple
-} = {
-  name: "Vedant Yetekar",
-  hobbies: ["music", "coding"],
-  age: 21,
-  role: ["SDE", SDE_LEVEL.I],
-};
-
-userDetails.role[1] = 1;
+console.log(combine(3, 4, "as-number"));
+console.log(combine("3", "4", "as-number"));
+console.log(combine(3, "4", "as-string"));
