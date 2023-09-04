@@ -1,15 +1,18 @@
-// union
-function combine(input1, input2, operationType) {
-    var result;
-    if ((typeof input1 === "number" && typeof input2 === "number") ||
-        operationType === "as-number") {
-        result = +input1 + +input2;
-    }
-    else {
-        result = input1.toString() + input2.toString();
-    }
-    return result;
+// return type
+function add(n1, n2) {
+    return n1 + n2;
 }
-console.log(combine(3, 4, "as-number"));
-console.log(combine("3", "4", "as-number"));
-console.log(combine(3, "4", "as-string"));
+function printResult(result) {
+    console.log(result);
+    return;
+}
+console.log(printResult(add(10, 44)));
+// let combinedValues: Function;
+var combinedValues; // more specific
+// combinedValues = printResult; error
+combinedValues = add;
+console.log(combinedValues(10, 10));
+function multiply(n1, n2, cb) {
+    cb(n1 * n2);
+}
+multiply(3, 2, printResult);
