@@ -16,3 +16,22 @@ function multiply(n1, n2, cb) {
     cb(n1 * n2);
 }
 multiply(3, 2, printResult);
+// unknown
+/*
+let username: any = "Vedant";
+username = 777;
+
+let userId: string = "Vedant";
+userId = username;
+*/
+var username = 777;
+username = "Vedant";
+var userId = "Vedant";
+if (typeof username === "string") {
+    userId = username;
+}
+// never
+function generateError(message, code) {
+    throw { message: message, errorCode: code };
+}
+// generateError("An error occured!", 500);
